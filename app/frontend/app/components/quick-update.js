@@ -9,6 +9,7 @@ export default Ember.Component.extend({
   canGoForward: function() {
     return !this.get('loading') && this.get('libraryEntries.length') === 6;
   }.property('loading', 'libraryEntries.length'),
+  loadRepeat: [1,2,3,4,5,6],
 
   fetchPage: function(page) {
     var store = this.get('targetObject.store'),

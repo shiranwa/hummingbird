@@ -6,9 +6,9 @@
           <a {{bind-attr class=":arrow-nav canGoBack::inactive"}} {{action "goBack"}}><i class="fa fa-angle-left"></i></a>
         </li>
         {{#if loading}}
-          {{#repeat 6}}
+          {{#each loadRepeat}}
             <li class="watched-series"><div class="update-loading"><i class="fa fa-spin fa-spinner"></i></div></li>
-          {{/repeat}}
+          {{/each}}
         {{else}}
           {{#each libraryEntries itemController="quick-update-item"}}
             <li {{bind-attr class=":watched-series isPTW:plan-to-watch"}}>

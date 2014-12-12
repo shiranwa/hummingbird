@@ -5,7 +5,6 @@ import config from './config/environment';
 
 import "./helpers/avatar";
 import "./helpers/pluralize";
-import "./helpers/repeat";
 import "./helpers/stars";
 
 // Used for redirecting after log in.
