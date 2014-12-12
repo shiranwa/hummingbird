@@ -1,6 +1,6 @@
-import DS from 'ember-data';
+import ApplicationAdapter from '../adapters/application';
 
-export default DS.ActiveModelAdapter.extend({
+export default ApplicationAdapter.extend({
   pathForType: function() {
     return 'users';
   }

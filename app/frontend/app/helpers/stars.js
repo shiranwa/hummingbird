@@ -11,7 +11,7 @@ export function stars(rating) {
       html += "<i class='fa fa-star-o'></i>";
     }
   }
-  return new Ember.Handlebars.SafeString(html);
+  return new Ember.String.htmlSafe(html);
 }
 
 Ember.Handlebars.helper('stars', stars);

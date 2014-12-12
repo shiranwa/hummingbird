@@ -43,7 +43,7 @@ export default Ember.ObjectController.extend({
         }
 
         code += '<img class="' + stripped + '" src="' + this.get('model.object')[stripped] + '"/>';
-        html.push([stripped, new Ember.Handlebars.SafeString(code)]);
+        html.push([stripped, new Ember.String.htmlSafe(code)]);
       }
 
       // embed youtube video, if exists
@@ -54,7 +54,7 @@ export default Ember.ObjectController.extend({
           code += this.youtubeEmbed(this.get('model.item.youtubeVideoId'));
         }
         code += this.youtubeEmbed(this.get('model.object')['youtube_video_id']);
-        html.push([key, new Ember.Handlebars.SafeString(code)]);
+        html.push([key, new Ember.String.htmlSafe(code)]);
       }
 
       // skip ignored properties
@@ -67,7 +67,7 @@ export default Ember.ObjectController.extend({
 
       var diff = htmldiff(change[0].toString(), change[1].toString());
       diff = diff.replace(/\n/g, "<br>");
-      html.push([key, new Ember.Handlebars.SafeString(diff)]);
+      html.push([key, new Ember.String.htmlSafe(diff)]);
     }
     return html;
   }.property('model.objectChanges'),

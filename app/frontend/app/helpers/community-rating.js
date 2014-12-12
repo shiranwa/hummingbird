@@ -27,7 +27,7 @@ export function communityRating(ratings) {
     html += '</li>';
   }
   html += '</ul>';
-  return new Ember.Handlebars.SafeString(html);
+  return new Ember.String.htmlSafe(html);
 }
 
 export default Ember.Handlebars.makeBoundHelper(communityRating);
