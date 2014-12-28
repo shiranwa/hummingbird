@@ -1113,6 +1113,39 @@ ALTER SEQUENCE partner_deals_id_seq OWNED BY partner_deals.id;
 
 
 --
+-- Name: payment_methods; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE payment_methods (
+    id integer NOT NULL,
+    user_id integer,
+    payment_type integer,
+    details hstore,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: payment_methods_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE payment_methods_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: payment_methods_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE payment_methods_id_seq OWNED BY payment_methods.id;
+
+
+--
 -- Name: people; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -1875,6 +1908,13 @@ ALTER TABLE ONLY partner_deals ALTER COLUMN id SET DEFAULT nextval('partner_deal
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY payment_methods ALTER COLUMN id SET DEFAULT nextval('payment_methods_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY people ALTER COLUMN id SET DEFAULT nextval('people_id_seq'::regclass);
 
 
@@ -2191,6 +2231,14 @@ ALTER TABLE ONLY partner_codes
 
 ALTER TABLE ONLY partner_deals
     ADD CONSTRAINT partner_deals_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: payment_methods_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY payment_methods
+    ADD CONSTRAINT payment_methods_pkey PRIMARY KEY (id);
 
 
 --
@@ -3546,4 +3594,6 @@ INSERT INTO schema_migrations (version) VALUES ('20141220090229');
 INSERT INTO schema_migrations (version) VALUES ('20141220111220');
 
 INSERT INTO schema_migrations (version) VALUES ('20141221065230');
+
+INSERT INTO schema_migrations (version) VALUES ('20141228152056');
 
