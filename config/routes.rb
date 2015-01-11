@@ -108,6 +108,10 @@ Hummingbird::Application.routes.draw do
       as: :disconnect_facebook
   end
 
+  resources :groups do
+    get 'members' => 'groups#show_members'
+  end
+
   # Settings
   get '/settings' => 'settings#index'
   namespace :settings do
