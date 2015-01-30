@@ -109,7 +109,8 @@ Hummingbird::Application.routes.draw do
   end
 
   resources :groups do
-    get 'members' => 'groups#show_members'
+    get 'members' => 'groups#static'
+    get 'manage' => 'groups#static'
   end
 
   resources :group_members
